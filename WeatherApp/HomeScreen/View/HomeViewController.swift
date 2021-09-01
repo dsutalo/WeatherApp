@@ -8,7 +8,9 @@
 import UIKit
 import CoreLocation
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, HomeViewModelDelegate {
+    
+    
     
     @IBOutlet var currentTemperature: UILabel!
     @IBOutlet var currentCityLabel: UILabel!
@@ -25,17 +27,28 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     var latitude = 0.0
     var longitude = 0.0
     
-    let apiKey = "e00d892445a45c9e8ac52763295ae025"
+    var viewModel: HomeViewModel!
     var locationManger = CLLocationManager()
     var currentCityWeather: Currently?
     override func viewDidLoad() {
         super.viewDidLoad()
         setLocationManager()
+    }
+    
+    init(viewModel: HomeViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+        viewModel.delegate = self
         
-        setURL()
-        convertTemperatures()
-        setScreen()
-        
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+       super.init(coder: aDecoder)
+    }
+ 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getData()
     }
     
     func setLocationManager(){
@@ -44,7 +57,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             locationManger.delegate = self
             locationManger.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManger.startUpdatingLocation()
-            
         }
     }
     
@@ -56,46 +68,28 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 
-    func setURL(){
-        let stringURL = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)"
-        if let url = URL(string: stringURL){
-            if let data = try? Data(contentsOf: url){
-                parse(json: data)
-            }
-        }
-        print("U seturlu \(latitude) \(longitude)")
-    }
     
-    func parse(json: Data){
-        let decoder = JSONDecoder()
-        
-        if let jsonWeather = try? decoder.decode(Currently.self, from: json){
-            currentCityWeather = jsonWeather
-            print(jsonWeather.main.temp)
-            
-        }
-    }
     
     func setScreen(){
-        guard let currentCity = currentCityWeather else{
+        guard let homeModel = viewModel.homeModel else{
             fatalError("Couldnt make an instance of currentCity")
         }
-        currentCityLabel.text = currentCity.name
-        currentTemperature.text = String(currentTemp)
+        currentCityLabel.text = homeModel.name
+        currentTemperature.text = String(homeModel.temp)
         currentTemperature.sizeToFit()
-        minTemperature.text = "min \n \(minTemp) C"
-        maxTemperature.text = "max \n \(maxTemp)"
-        humidity.text = "Humidity\n \(currentCity.main.humidity)%"
-        pressure.text = "Pressure\n \(currentCity.main.pressure) hpa"
-        windSpeed.text = "Wind\n \(currentCity.wind.speed) mph"
+        minTemperature.text = "min \n \(homeModel.temp_min) C"
+        maxTemperature.text = "max \n \(homeModel.temp_max)"
+        humidity.text = "Humidity\n \(homeModel.humidity)%"
+        pressure.text = "Pressure\n \(homeModel.pressure) hpa"
+        windSpeed.text = "Wind\n \(homeModel.speed) mph"
         setSymbol()
     }
     
     func setSymbol(){
-        guard let currentCity = currentCityWeather else{
+        guard let homeModel = viewModel.homeModel else{
             fatalError("Couldnt make an instance of currentCity")
         }
-        guard let conditionId = currentCity.weather[0].id else{
+        guard let conditionId = homeModel.id else{
             fatalError("Couldnt make conditionId instance")
         }
         var conditionName: String{
@@ -122,24 +116,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         print(conditionId)
     }
     
-    func kelvinToCelsius(kelvin: Double) -> Double{
-        return (kelvin - 273.15).rounded(toPlaces: 1)
-    }
-    
-    func convertTemperatures(){
-        guard let currentCity = currentCityWeather else {return}
-        currentTemp = kelvinToCelsius(kelvin: currentCity.main.temp)
-        minTemp = kelvinToCelsius(kelvin: currentCity.main.temp_min)
-        maxTemp = kelvinToCelsius(kelvin: currentCity.main.temp_max)
+    func reloadView() {
+        setScreen()
     }
     
     
 }
 
-extension Double {
-    /// Rounds the double to decimal places value
-    func rounded(toPlaces places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
-    }
-}
+
