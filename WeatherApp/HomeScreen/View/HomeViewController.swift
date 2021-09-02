@@ -21,12 +21,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, HomeViewM
     @IBOutlet var minTemperature: UILabel!
     @IBOutlet var symbolImageView: UIImageView!
     
-    var latitude = 0.0
-    var longitude = 0.0
-    
     var viewModel: HomeViewModel!
-    var locationManger = CLLocationManager()
-    
     var currentCityWeather: Currently?
     override func viewDidLoad() {
         super.viewDidLoad()

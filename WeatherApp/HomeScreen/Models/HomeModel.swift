@@ -17,5 +17,4 @@ struct HomeModel{
     var name: String
     var id: Int
     var speed: Double
-    var image: UIImage?
 }
