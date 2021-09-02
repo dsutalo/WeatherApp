@@ -8,5 +8,5 @@
 import Foundation
 
 struct Weather: Codable {
-    var id: Int?
+    var id: Int
 }

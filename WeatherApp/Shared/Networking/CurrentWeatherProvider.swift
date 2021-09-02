@@ -10,8 +10,10 @@ import UIKit
 
 class CurrentWeatherProvider {
     let constants = Constants()
-    func getWeatherInfo(latitude: Double, longitude: Double) -> Currently?{
-        let stringURL = constants.setURL(latitude: latitude, longitude: longitude)
+    let currentLocation = Location()
+    
+    func getWeatherInfo() -> Currently?{
+        let stringURL = currentLocation.getCurrenntLocationURL()
         if let url = URL(string: stringURL){
             if let data = try? Data(contentsOf: url){
                 return parse(json: data)

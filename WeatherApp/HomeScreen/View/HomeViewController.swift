@@ -21,54 +21,35 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, HomeViewM
     @IBOutlet var minTemperature: UILabel!
     @IBOutlet var symbolImageView: UIImageView!
     
-    var currentTemp = 0.0
-    var minTemp = 0.0
-    var maxTemp = 0.0
     var latitude = 0.0
     var longitude = 0.0
     
     var viewModel: HomeViewModel!
     var locationManger = CLLocationManager()
+    
     var currentCityWeather: Currently?
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLocationManager()
     }
     
     init(viewModel: HomeViewModel) {
         super.init(nibName: nil, bundle: nil)
-        self.viewModel = viewModel
-        viewModel.delegate = self
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
+        viewModel = HomeViewModel(currentWeatherProvider: CurrentWeatherProvider())
+        viewModel.delegate = self
     }
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.getData()
+        viewModel.getURLData()
     }
     
-    func setLocationManager(){
-        self.locationManger.requestAlwaysAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManger.delegate = self
-            locationManger.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManger.startUpdatingLocation()
-        }
+    func reloadView() {
+        setScreen()
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let localValue: CLLocationCoordinate2D = manager.location?.coordinate else {return}
-        latitude = localValue.latitude
-        longitude = localValue.longitude
-        print("locations = \(latitude), \(longitude)")
-    }
-    
-
-    
     
     func setScreen(){
         guard let homeModel = viewModel.homeModel else{
@@ -76,22 +57,22 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, HomeViewM
         }
         currentCityLabel.text = homeModel.name
         currentTemperature.text = String(homeModel.temp)
-        currentTemperature.sizeToFit()
         minTemperature.text = "min \n \(homeModel.temp_min) C"
         maxTemperature.text = "max \n \(homeModel.temp_max)"
         humidity.text = "Humidity\n \(homeModel.humidity)%"
         pressure.text = "Pressure\n \(homeModel.pressure) hpa"
         windSpeed.text = "Wind\n \(homeModel.speed) mph"
         setSymbol()
+        
+        currentTemperature.sizeToFit()
+        currentCityLabel.sizeToFit()
     }
     
     func setSymbol(){
         guard let homeModel = viewModel.homeModel else{
-            fatalError("Couldnt make an instance of currentCity")
+            fatalError("Couldnt make an instance of homeModel")
         }
-        guard let conditionId = homeModel.id else{
-            fatalError("Couldnt make conditionId instance")
-        }
+        let conditionId = homeModel.id 
         var conditionName: String{
             switch conditionId{
             case 200...232:
@@ -115,12 +96,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, HomeViewM
         symbolImageView.image = UIImage(systemName: conditionName)
         print(conditionId)
     }
-    
-    func reloadView() {
-        setScreen()
-    }
-    
-    
 }
 
 

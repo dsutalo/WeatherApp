@@ -12,8 +12,6 @@ struct Constants{
     func setURL(latitude: Double, longitude: Double) -> String{
         "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)"
     }
-    static let latitude = 45.18
-    static let longitude = 18.5
-    
-    
+    static let latitude = 45.5511
+    static let longitude = 18.7
 }
