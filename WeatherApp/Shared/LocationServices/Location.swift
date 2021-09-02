@@ -27,4 +27,3 @@ class Location: NSObject, CLLocationManagerDelegate {
         return stringURL
     }
 }
-
