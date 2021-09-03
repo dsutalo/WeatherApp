@@ -47,7 +47,7 @@ class OptionsView: UIView {
     func setupView(){
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         backgroundImage.image = UIImage(named: "background")
-        backgroundImage.contentMode = .scaleToFill
+        backgroundImage.contentMode = .scaleAspectFill
         self.addSubview(backgroundImage)
         
         self.addSubview(celsiusCheck)
@@ -107,7 +107,7 @@ class OptionsView: UIView {
             
             fahrenheitCheck.widthAnchor.constraint(equalToConstant: checkBoxWidthHeight),
             fahrenheitCheck.heightAnchor.constraint(equalToConstant: checkBoxWidthHeight),
-            fahrenheitCheck.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,constant:Constants.degreesLeft),
+            fahrenheitCheck.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,constant:degreesLeft),
             fahrenheitCheck.bottomAnchor.constraint(equalTo: humidityImage.topAnchor, constant: -spaceBetweenFahrenheitAndImage),
             
             fahrenheitLabel.centerYAnchor.constraint(equalTo: fahrenheitCheck.centerYAnchor),
