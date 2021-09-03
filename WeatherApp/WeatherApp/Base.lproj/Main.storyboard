@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xcW-Fj-J1z">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -147,6 +147,7 @@
                             <constraint firstItem="Pe5-FS-Wpe" firstAttribute="trailing" secondItem="wGG-5j-Csr" secondAttribute="trailing" id="wId-YZ-Xzd"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="iFZ-BZ-hpK"/>
                     <connections>
                         <outlet property="currentCityLabel" destination="ktW-PE-eIu" id="uup-8D-m3h"/>
                         <outlet property="currentTemperature" destination="Pe5-FS-Wpe" id="kMd-ks-WSD"/>
@@ -161,6 +162,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="77.678571428571431"/>
+        </scene>
+        <!--Options View Controller-->
+        <scene sceneID="gJ4-0C-MWN">
+            <objects>
+                <viewController id="xcW-Fj-J1z" customClass="OptionsViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k4P-Gu-PsF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gvw-tj-2xS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9vC-3s-S1w">
+                        <barButtonItem key="backBarButtonItem" title="This" id="g1i-tK-6Hs"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tdQ-eg-hJb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140.5797101449277" y="77.678571428571431"/>
         </scene>
     </scenes>
     <resources>

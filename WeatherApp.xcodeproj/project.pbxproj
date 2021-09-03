@@ -16,6 +16,9 @@
 		4F2EC90326DE732500174B57 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EC90226DE732500174B57 /* Main.swift */; };
 		4F2EC90526DE741100174B57 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EC90426DE741100174B57 /* Wind.swift */; };
 		4F3BCFC226E0B95900D31078 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3BCFC126E0B95900D31078 /* Location.swift */; };
+		4F3BCFCE26E1159200D31078 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3BCFCD26E1159200D31078 /* OptionsViewController.swift */; };
+		4F3BCFD026E11BEF00D31078 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3BCFCF26E11BEF00D31078 /* CheckboxButton.swift */; };
+		4F3BCFD226E12DD700D31078 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3BCFD126E12DD700D31078 /* OptionsView.swift */; };
 		4F3EF8ED26DFEC3F0029E1D9 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EF8EC26DFEC3F0029E1D9 /* HomeModel.swift */; };
 		4F3EF8F326DFEE400029E1D9 /* CurrentWeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EF8F226DFEE400029E1D9 /* CurrentWeatherProvider.swift */; };
 		4F3EF8F626DFEF010029E1D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EF8F526DFEF010029E1D9 /* Constants.swift */; };
@@ -37,6 +40,9 @@
 		4F2EC90226DE732500174B57 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		4F2EC90426DE741100174B57 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
 		4F3BCFC126E0B95900D31078 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4F3BCFCD26E1159200D31078 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		4F3BCFCF26E11BEF00D31078 /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
+		4F3BCFD126E12DD700D31078 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		4F3EF8EC26DFEC3F0029E1D9 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		4F3EF8F226DFEE400029E1D9 /* CurrentWeatherProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherProvider.swift; sourceTree = "<group>"; };
 		4F3EF8F526DFEF010029E1D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -61,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				4F2EC8EA26DE6D2600174B57 /* WeatherApp */,
-				4F2EC8E926DE6D2600174B57 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,12 +76,14 @@
 				4F2EC8E826DE6D2600174B57 /* WeatherApp.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		4F2EC8EA26DE6D2600174B57 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
 				4F3EF8F026DFED310029E1D9 /* Shared */,
+				4F3BCFC926E1106400D31078 /* OptionsScreen */,
 				4FC9082A26DF74D90013FC01 /* HomeScreen */,
 				4F2EC8EB26DE6D2600174B57 /* AppDelegate.swift */,
 				4FC9082F26DFB7F70013FC01 /* Main.storyboard */,
@@ -84,6 +91,7 @@
 				4F2EC8F426DE6D2900174B57 /* Assets.xcassets */,
 				4F2EC8F626DE6D2900174B57 /* LaunchScreen.storyboard */,
 				4F2EC8F926DE6D2900174B57 /* Info.plist */,
+				4F2EC8E926DE6D2600174B57 /* Products */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -106,6 +114,40 @@
 				4F3BCFC126E0B95900D31078 /* Location.swift */,
 			);
 			path = LocationServices;
+			sourceTree = "<group>";
+		};
+		4F3BCFC926E1106400D31078 /* OptionsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4F3BCFCC26E1108800D31078 /* View */,
+				4F3BCFCB26E1108100D31078 /* Model */,
+				4F3BCFCA26E1107100D31078 /* ViewModel */,
+			);
+			path = OptionsScreen;
+			sourceTree = "<group>";
+		};
+		4F3BCFCA26E1107100D31078 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F3BCFCB26E1108100D31078 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F3BCFCC26E1108800D31078 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F3BCFCD26E1159200D31078 /* OptionsViewController.swift */,
+				4F3BCFCF26E11BEF00D31078 /* CheckboxButton.swift */,
+				4F3BCFD126E12DD700D31078 /* OptionsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4F3EF8EE26DFED020029E1D9 /* View */ = {
@@ -242,12 +284,15 @@
 				4F3EF8FB26DFF6270029E1D9 /* Double+Extensions.swift in Sources */,
 				4F3EF8F326DFEE400029E1D9 /* CurrentWeatherProvider.swift in Sources */,
 				4F3EF8F826DFF1A10029E1D9 /* HomeViewModel.swift in Sources */,
+				4F3BCFD226E12DD700D31078 /* OptionsView.swift in Sources */,
+				4F3BCFCE26E1159200D31078 /* OptionsViewController.swift in Sources */,
 				4F2EC90326DE732500174B57 /* Main.swift in Sources */,
 				4F2EC8F026DE6D2600174B57 /* HomeViewController.swift in Sources */,
 				4F2EC8EC26DE6D2600174B57 /* AppDelegate.swift in Sources */,
 				4F3BCFC226E0B95900D31078 /* Location.swift in Sources */,
 				4F2EC90126DE6DE000174B57 /* Currently.swift in Sources */,
 				4F3EF8F626DFEF010029E1D9 /* Constants.swift in Sources */,
+				4F3BCFD026E11BEF00D31078 /* CheckboxButton.swift in Sources */,
 				4F3EF8ED26DFEC3F0029E1D9 /* HomeModel.swift in Sources */,
 				4F2EC8EE26DE6D2600174B57 /* SceneDelegate.swift in Sources */,
 				4F2EC90526DE741100174B57 /* Wind.swift in Sources */,

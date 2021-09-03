@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants{
     let apiKey = "e00d892445a45c9e8ac52763295ae025"
@@ -14,4 +15,5 @@ struct Constants{
     }
     static let latitude = 45.5511
     static let longitude = 18.7
+    
 }
