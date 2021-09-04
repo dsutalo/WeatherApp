@@ -15,7 +15,6 @@ class HomeViewModel{
     var delegate: HomeViewModelDelegate!
     var homeModel: HomeModel?
     let currentWeatherProvider: CurrentWeatherProvider
-    
     init(currentWeatherProvider: CurrentWeatherProvider){
         self.currentWeatherProvider = currentWeatherProvider
     }
