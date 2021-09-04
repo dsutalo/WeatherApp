@@ -11,16 +11,16 @@ import UIKit
 class OptionsView: UIView {
     
     private lazy var backgroundImage = UIImageView()
-    private lazy var celsiusCheck = UICheckbox()
-    private lazy var fahrenheitCheck = UICheckbox()
+    private lazy var celsiusCheck = Checkbox()
+    private lazy var fahrenheitCheck = Checkbox()
     private lazy var celsiusLabel = UILabel()
     private lazy var fahrenheitLabel = UILabel()
     private lazy var humidityImage = UIImageView()
     private lazy var pressureImage = UIImageView()
     private lazy var windImage = UIImageView()
-    private lazy var humidityCheck = UICheckbox()
-    private lazy var pressureCheck = UICheckbox()
-    private lazy var windCheck = UICheckbox()
+    private lazy var humidityCheck = Checkbox()
+    private lazy var pressureCheck = Checkbox()
+    private lazy var windCheck = Checkbox()
     
     private let checkBoxWidthHeight: CGFloat = 35
     private let checkBoxLeadingConstraint: CGFloat = 70

@@ -7,12 +7,12 @@
 
 import UIKit
 
-class UICheckbox: UIButton {
+class Checkbox: UIButton {
 
     private var userDefaultsKey: String!
     var isChecked: Bool!
     
-    private weak var oppositeCheckbox: UICheckbox?
+    private weak var oppositeCheckbox: Checkbox?
 
     required init() {
         self.isChecked = false
