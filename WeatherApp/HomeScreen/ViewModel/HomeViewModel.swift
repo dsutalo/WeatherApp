@@ -12,6 +12,9 @@ protocol HomeViewModelDelegate {
 }
 
 class HomeViewModel{
+    
+    var optionsPressed: EmptyCallback?
+    
     var delegate: HomeViewModelDelegate!
     var homeModel: HomeModel?
     let currentWeatherProvider: CurrentWeatherProvider
@@ -22,7 +25,7 @@ class HomeViewModel{
     func getURLData(){
         let response = currentWeatherProvider.getWeatherInfo()
         homeModel = self.getHomeModel(currently: response!)
-        delegate.reloadView()
+        
     }
     
     func getHomeModel(currently: Currently) -> HomeModel{
@@ -38,3 +41,10 @@ class HomeViewModel{
         return (kelvin - 273.15).rounded(toPlaces: 1)
     }
 }
+
+extension HomeViewModel{
+    public func onOptionsPressed(){
+        optionsPressed?()
+    }
+}
+

@@ -9,6 +9,7 @@ import UIKit
 
 class OptionsViewController: UIViewController {
     private lazy var optionsView = OptionsView()
+    var viewModel : OptionsViewModel?
     
     override func loadView() {
         self.view = optionsView

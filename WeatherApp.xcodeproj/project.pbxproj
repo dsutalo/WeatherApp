@@ -24,6 +24,14 @@
 		4F3EF8F626DFEF010029E1D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EF8F526DFEF010029E1D9 /* Constants.swift */; };
 		4F3EF8F826DFF1A10029E1D9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EF8F726DFF1A10029E1D9 /* HomeViewModel.swift */; };
 		4F3EF8FB26DFF6270029E1D9 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EF8FA26DFF6270029E1D9 /* Double+Extensions.swift */; };
+		4F56AC0026E3D9BA00356E7A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56ABFF26E3D9BA00356E7A /* Coordinator.swift */; };
+		4F56AC0226E3DA2900356E7A /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56AC0126E3DA2900356E7A /* RootCoordinator.swift */; };
+		4F56AC0526E3DCE100356E7A /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56AC0426E3DCE100356E7A /* HomeCoordinator.swift */; };
+		4F56AC0826E4BE6A00356E7A /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56AC0726E4BE6A00356E7A /* TypeAliases.swift */; };
+		4F56AC0B26E4D47300356E7A /* OptionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56AC0A26E4D47300356E7A /* OptionsCoordinator.swift */; };
+		4F56AC0D26E4F65F00356E7A /* OptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56AC0C26E4F65F00356E7A /* OptionsModel.swift */; };
+		4F56AC0F26E4F6C100356E7A /* OptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56AC0E26E4F6C100356E7A /* OptionsViewModel.swift */; };
+		4F56AC1126E5018C00356E7A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56AC1026E5018C00356E7A /* UIViewController+Extension.swift */; };
 		4FC9082C26DFA8990013FC01 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC9082B26DFA8990013FC01 /* Weather.swift */; };
 		4FC9083126DFB7F70013FC01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC9082F26DFB7F70013FC01 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -48,6 +56,14 @@
 		4F3EF8F526DFEF010029E1D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4F3EF8F726DFF1A10029E1D9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4F3EF8FA26DFF6270029E1D9 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		4F56ABFF26E3D9BA00356E7A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		4F56AC0126E3DA2900356E7A /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		4F56AC0426E3DCE100356E7A /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		4F56AC0726E4BE6A00356E7A /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		4F56AC0A26E4D47300356E7A /* OptionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsCoordinator.swift; sourceTree = "<group>"; };
+		4F56AC0C26E4F65F00356E7A /* OptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsModel.swift; sourceTree = "<group>"; };
+		4F56AC0E26E4F6C100356E7A /* OptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewModel.swift; sourceTree = "<group>"; };
+		4F56AC1026E5018C00356E7A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4FC9082B26DFA8990013FC01 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		4FC9083026DFB7F70013FC01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WeatherApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +98,7 @@
 		4F2EC8EA26DE6D2600174B57 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				4F56ABFE26E3D99D00356E7A /* RootCoordinator */,
 				4F3EF8F026DFED310029E1D9 /* Shared */,
 				4F3BCFC926E1106400D31078 /* OptionsScreen */,
 				4FC9082A26DF74D90013FC01 /* HomeScreen */,
@@ -119,6 +136,7 @@
 		4F3BCFC926E1106400D31078 /* OptionsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				4F56AC0926E4D45D00356E7A /* OptionsCoordinator */,
 				4F3BCFCC26E1108800D31078 /* View */,
 				4F3BCFCB26E1108100D31078 /* Model */,
 				4F3BCFCA26E1107100D31078 /* ViewModel */,
@@ -129,6 +147,7 @@
 		4F3BCFCA26E1107100D31078 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4F56AC0E26E4F6C100356E7A /* OptionsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -136,6 +155,7 @@
 		4F3BCFCB26E1108100D31078 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F56AC0C26E4F65F00356E7A /* OptionsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +189,7 @@
 		4F3EF8F026DFED310029E1D9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				4F56AC0626E4BE5700356E7A /* TypeAliases */,
 				4F3BCFC026E0B94100D31078 /* LocationServices */,
 				4F3EF8F926DFF60B0029E1D9 /* Extensions */,
 				4F3EF8F426DFEEE00029E1D9 /* Constants */,
@@ -197,13 +218,48 @@
 			isa = PBXGroup;
 			children = (
 				4F3EF8FA26DFF6270029E1D9 /* Double+Extensions.swift */,
+				4F56AC1026E5018C00356E7A /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4F56ABFE26E3D99D00356E7A /* RootCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4F56ABFF26E3D9BA00356E7A /* Coordinator.swift */,
+				4F56AC0126E3DA2900356E7A /* RootCoordinator.swift */,
+			);
+			path = RootCoordinator;
+			sourceTree = "<group>";
+		};
+		4F56AC0326E3DCD100356E7A /* HomeCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4F56AC0426E3DCE100356E7A /* HomeCoordinator.swift */,
+			);
+			path = HomeCoordinator;
+			sourceTree = "<group>";
+		};
+		4F56AC0626E4BE5700356E7A /* TypeAliases */ = {
+			isa = PBXGroup;
+			children = (
+				4F56AC0726E4BE6A00356E7A /* TypeAliases.swift */,
+			);
+			path = TypeAliases;
+			sourceTree = "<group>";
+		};
+		4F56AC0926E4D45D00356E7A /* OptionsCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4F56AC0A26E4D47300356E7A /* OptionsCoordinator.swift */,
+			);
+			path = OptionsCoordinator;
 			sourceTree = "<group>";
 		};
 		4FC9082A26DF74D90013FC01 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				4F56AC0326E3DCD100356E7A /* HomeCoordinator */,
 				4F3EF8EF26DFED100029E1D9 /* ViewModel */,
 				4F3EF8EE26DFED020029E1D9 /* View */,
 				4F2EC8FF26DE6D6700174B57 /* Models */,
@@ -282,21 +338,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F3EF8FB26DFF6270029E1D9 /* Double+Extensions.swift in Sources */,
+				4F56AC0B26E4D47300356E7A /* OptionsCoordinator.swift in Sources */,
 				4F3EF8F326DFEE400029E1D9 /* CurrentWeatherProvider.swift in Sources */,
 				4F3EF8F826DFF1A10029E1D9 /* HomeViewModel.swift in Sources */,
 				4F3BCFD226E12DD700D31078 /* OptionsView.swift in Sources */,
 				4F3BCFCE26E1159200D31078 /* OptionsViewController.swift in Sources */,
+				4F56AC0F26E4F6C100356E7A /* OptionsViewModel.swift in Sources */,
 				4F2EC90326DE732500174B57 /* Main.swift in Sources */,
 				4F2EC8F026DE6D2600174B57 /* HomeViewController.swift in Sources */,
 				4F2EC8EC26DE6D2600174B57 /* AppDelegate.swift in Sources */,
+				4F56AC0826E4BE6A00356E7A /* TypeAliases.swift in Sources */,
 				4F3BCFC226E0B95900D31078 /* Location.swift in Sources */,
 				4F2EC90126DE6DE000174B57 /* Currently.swift in Sources */,
+				4F56AC1126E5018C00356E7A /* UIViewController+Extension.swift in Sources */,
+				4F56AC0026E3D9BA00356E7A /* Coordinator.swift in Sources */,
 				4F3EF8F626DFEF010029E1D9 /* Constants.swift in Sources */,
+				4F56AC0D26E4F65F00356E7A /* OptionsModel.swift in Sources */,
 				4F3BCFD026E11BEF00D31078 /* CheckboxButton.swift in Sources */,
 				4F3EF8ED26DFEC3F0029E1D9 /* HomeModel.swift in Sources */,
 				4F2EC8EE26DE6D2600174B57 /* SceneDelegate.swift in Sources */,
 				4F2EC90526DE741100174B57 /* Wind.swift in Sources */,
+				4F56AC0226E3DA2900356E7A /* RootCoordinator.swift in Sources */,
 				4FC9082C26DFA8990013FC01 /* Weather.swift in Sources */,
+				4F56AC0526E3DCE100356E7A /* HomeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

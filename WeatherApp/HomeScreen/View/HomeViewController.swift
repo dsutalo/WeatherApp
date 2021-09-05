@@ -9,9 +9,7 @@ import UIKit
 import CoreLocation
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, HomeViewModelDelegate {
-    
-    
-    
+
     @IBOutlet var currentTemperature: UILabel!
     @IBOutlet var currentCityLabel: UILabel!
     @IBOutlet var windSpeed: UILabel!
@@ -27,14 +25,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, HomeViewM
         super.viewDidLoad()
     }
     
-    init(viewModel: HomeViewModel) {
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
-        viewModel = HomeViewModel(currentWeatherProvider: CurrentWeatherProvider())
-        viewModel.delegate = self
+//        viewModel = HomeViewModel(currentWeatherProvider: CurrentWeatherProvider())
+//        viewModel.delegate = self
     }
  
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +89,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, HomeViewM
         symbolImageView.image = UIImage(systemName: conditionName)
         print(conditionId)
     }
+    
+    @IBAction func optionsButtonTapped(_ sender: Any) {
+        viewModel.onOptionsPressed()
+        print("Options pressed")
+    }
+    
 }
 
 
