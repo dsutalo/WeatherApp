@@ -31,6 +31,6 @@ struct Currently: Codable {
     }
     
     static func getDefaultWeather() -> Currently {
-        return Currently(main: Main(temp: 20, humidity: 75, pressure: 1000, temp_min: 20, temp_max: 20), wind: Wind(speed: 7.5), id: 2643743, name: "London", weather: [Weather(id: 800)])
+        return Currently(main: Main(temp: 273.15, humidity: 0, pressure: 0, temp_min: 273.15, temp_max: 273.15), wind: Wind(speed: 0), id: 0, name: "Unknown location", weather: [Weather(id: 800)])
     }
 }
