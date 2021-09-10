@@ -13,14 +13,9 @@ class SearchViewController: UITableViewController {
     @IBOutlet var searchField: UITextField!
     
     var viewModel: SearchViewModel!
-    var savedCities = [City]()
+    var onCityTapped: ((String) -> Void)?
     let backgroundImage = UIImage(named: "background")
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setScreen()
-    }
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -30,11 +25,22 @@ class SearchViewController: UITableViewController {
         viewModel = SearchViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let loadedCities = viewModel.loadCitiesFromUserDefaults() {
+            viewModel.fetchedCities = loadedCities
+        }
+        tableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setScreen()
+    }
+    
     func searchButtonTapped(){
         if let locationString = searchField.text, !locationString.isEmpty{
-            let cityName = locationString
-            savedCities = viewModel.getURLData(cityNamed: cityName)
-            print(savedCities.count)
+            viewModel.fetchedCities = viewModel.getResponseForSearchedCity(cityNamed: locationString)
             tableView.reloadData()
         }
     }
@@ -53,27 +59,27 @@ class SearchViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return savedCities.count
+        return viewModel.fetchedCities.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",for: indexPath)
         cell.backgroundColor = .clear
-        cell.textLabel?.text = savedCities[indexPath.row].name
-        cell.detailTextLabel?.text = savedCities[indexPath.row].countryName
+        cell.textLabel?.text = viewModel.fetchedCities[indexPath.row].name
+        cell.detailTextLabel?.text = viewModel.fetchedCities[indexPath.row].countryName
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCity = savedCities[indexPath.row]
-        viewModel.saveToUserDefaults(city: selectedCity)
-        let savedCity = viewModel.loadFromUserDefaults()
-        savedCities.removeAll()
-        savedCities.append(savedCity!)
-        print(savedCities)
+        viewModel.selectedCity = viewModel.fetchedCities[indexPath.row]
+        guard let selectedCity = viewModel.selectedCity else {
+            fatalError("selectedCity is nil")
+        }
+        viewModel.fetchedCities.append(selectedCity)
+        viewModel.saveCityToUserDefaults()
+        onCityTapped?(selectedCity.name)
+        navigationController?.popViewController(animated: true)
         }
     }
 

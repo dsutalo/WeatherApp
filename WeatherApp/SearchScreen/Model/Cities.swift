@@ -9,4 +9,10 @@ import Foundation
 
 struct Cities: Codable{
     var geonames: [City]
+    
+    static func getDefaultCities() -> [City] {
+        return [City(name: "Zagreb", countryName: "Croatia")]
+    }
 }
+
+

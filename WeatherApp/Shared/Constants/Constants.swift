@@ -8,10 +8,11 @@
 import Foundation
 
 struct Constants{
-    let apiKey = "e00d892445a45c9e8ac52763295ae025"
+    static let apiKey = "e00d892445a45c9e8ac52763295ae025"
     func setURL(latitude: Double, longitude: Double) -> String{
-        "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)"
+        "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(Constants.apiKey)"
     }
-    static let latitude = 34.052235
-    static let longitude = -118.243683
+    static let latitude = 45.077013
+    static let longitude = 18.696005
 }
+
