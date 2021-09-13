@@ -44,7 +44,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if city == nil {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
                 self.viewModel.getURLDataForCurrentLocation()
                 self.reloadView()
             })
