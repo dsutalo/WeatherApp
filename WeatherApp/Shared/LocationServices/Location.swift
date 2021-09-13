@@ -9,21 +9,31 @@ import Foundation
 import UIKit
 import CoreLocation
 
-class Location: NSObject, CLLocationManagerDelegate {
-    var locationManger = CLLocationManager()
-    let constants = Constants()
-    var currentLocation: CLLocation!
+class Location: NSObject, CLLocationManagerDelegate{
+    var constants = Constants()
+    var locationManager: CLLocationManager!
+      
+    var latitude = Double()
+    var longitude = Double()
     
-    func getCurrenntLocationURL() -> String{
-        
-        var stringURL = ""
-        self.locationManger.requestAlwaysAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            let currentLocationLatitude = locationManger.location?.coordinate.latitude ?? Constants.latitude
-            let currentLocationLongitude = locationManger.location?.coordinate.latitude ?? Constants.longitude
-            stringURL = constants.setURL(latitude: currentLocationLatitude, longitude: currentLocationLongitude)
-            
+    var didRecieveLocation: ((Double, Double) -> Void)?
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let currentLocation = locations.last{
+            latitude = currentLocation.coordinate.latitude
+            longitude = currentLocation.coordinate.longitude
+            locationManager.stopUpdatingLocation()
         }
-        return stringURL
     }
+    func getCurrenntLocationURL() -> String {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        return constants.setURL(latitude: latitude, longitude: longitude)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+
 }
