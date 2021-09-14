@@ -33,6 +33,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = ""
         viewModel.getURLDataForCurrentLocation()
     }
 
@@ -44,8 +45,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if city == nil {
+            viewModel.getURLDataForCurrentLocation()
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
-                self.viewModel.getURLDataForCurrentLocation()
                 self.reloadView()
             })
         }
@@ -67,6 +68,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         pressure.text = "Pressure\n \(homeModel.pressure) hpa"
         windSpeed.text = "Wind\n \(homeModel.speed) mph"
         setSymbol()
+        
+        
     }
     
     func setSymbol(){
