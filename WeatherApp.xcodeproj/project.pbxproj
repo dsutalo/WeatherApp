@@ -22,6 +22,8 @@
 		4F3EF8F626DFEF010029E1D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EF8F526DFEF010029E1D9 /* Constants.swift */; };
 		4F3EF8F826DFF1A10029E1D9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EF8F726DFF1A10029E1D9 /* HomeViewModel.swift */; };
 		4F3EF8FB26DFF6270029E1D9 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EF8FA26DFF6270029E1D9 /* Double+Extensions.swift */; };
+		4F53EC1126F093A000F1A460 /* OptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53EC1026F0939F00F1A460 /* OptionsModel.swift */; };
+		4F53EC1326F09E0A00F1A460 /* OptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53EC1226F09E0A00F1A460 /* OptionsViewModel.swift */; };
 		4F56ABD226E23A8E00356E7A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56ABD126E23A8E00356E7A /* SearchViewController.swift */; };
 		4F56ABD726E294CD00356E7A /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56ABD626E294CD00356E7A /* Cities.swift */; };
 		4F56ABDB26E2B21800356E7A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F56ABDA26E2B21800356E7A /* SearchViewModel.swift */; };
@@ -48,6 +50,8 @@
 		4F3EF8F526DFEF010029E1D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4F3EF8F726DFF1A10029E1D9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4F3EF8FA26DFF6270029E1D9 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		4F53EC1026F0939F00F1A460 /* OptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsModel.swift; sourceTree = "<group>"; };
+		4F53EC1226F09E0A00F1A460 /* OptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewModel.swift; sourceTree = "<group>"; };
 		4F56ABD126E23A8E00356E7A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4F56ABD626E294CD00356E7A /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		4F56ABDA26E2B21800356E7A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		4F3BCFCA26E1107100D31078 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4F53EC1226F09E0A00F1A460 /* OptionsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 		4F3BCFCB26E1108100D31078 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F53EC1026F0939F00F1A460 /* OptionsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,22 +156,6 @@
 				4F3BCFD126E12DD700D31078 /* OptionsView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		4F3EF8EE26DFED020029E1D9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4F2EC8EF26DE6D2600174B57 /* HomeViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4F3EF8EF26DFED100029E1D9 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				4F3EF8F726DFF1A10029E1D9 /* HomeViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4F3EF8F026DFED310029E1D9 /* Shared */ = {
@@ -242,8 +232,8 @@
 		4FC9082A26DF74D90013FC01 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				4F3EF8EF26DFED100029E1D9 /* ViewModel */,
-				4F3EF8EE26DFED020029E1D9 /* View */,
+				4F3EF8F726DFF1A10029E1D9 /* HomeViewModel.swift */,
+				4F2EC8EF26DE6D2600174B57 /* HomeViewController.swift */,
 				4F2EC8FF26DE6D6700174B57 /* Models */,
 			);
 			path = HomeScreen;
@@ -324,7 +314,6 @@
 				4F3EF8F826DFF1A10029E1D9 /* HomeViewModel.swift in Sources */,
 				4F3BCFD226E12DD700D31078 /* OptionsView.swift in Sources */,
 				4F3BCFCE26E1159200D31078 /* OptionsViewController.swift in Sources */,
-				4F2EC90326DE732500174B57 /* Main.swift in Sources */,
 				4F593E7526E8FF0C007FA6C7 /* Array+Extension.swift in Sources */,
 				4F2EC8F026DE6D2600174B57 /* HomeViewController.swift in Sources */,
 				4F2EC8EC26DE6D2600174B57 /* AppDelegate.swift in Sources */,
@@ -335,7 +324,9 @@
 				4F56ABD226E23A8E00356E7A /* SearchViewController.swift in Sources */,
 				4F593E7726E921D4007FA6C7 /* City.swift in Sources */,
 				4F3EF8F626DFEF010029E1D9 /* Constants.swift in Sources */,
+				4F53EC1126F093A000F1A460 /* OptionsModel.swift in Sources */,
 				4F3BCFD026E11BEF00D31078 /* CheckboxButton.swift in Sources */,
+				4F53EC1326F09E0A00F1A460 /* OptionsViewModel.swift in Sources */,
 				4F3EF8ED26DFEC3F0029E1D9 /* HomeModel.swift in Sources */,
 				4F2EC8EE26DE6D2600174B57 /* SceneDelegate.swift in Sources */,
 			);

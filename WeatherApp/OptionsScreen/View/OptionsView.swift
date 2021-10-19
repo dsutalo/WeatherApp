@@ -9,18 +9,19 @@ import Foundation
 import UIKit
 
 class OptionsView: UIView {
-    
+    var onOptionsChanged: ((OptionsModel) -> Void)?
+
     private lazy var backgroundImage = UIImageView()
-    private lazy var celsiusCheck = Checkbox()
-    private lazy var fahrenheitCheck = Checkbox()
+    private lazy var celsiusCheck = Checkbox(defaultValue: true)
+    private lazy var fahrenheitCheck = Checkbox(defaultValue: false)
     private lazy var celsiusLabel = UILabel()
     private lazy var fahrenheitLabel = UILabel()
     private lazy var humidityImage = UIImageView()
     private lazy var pressureImage = UIImageView()
     private lazy var windImage = UIImageView()
-    private lazy var humidityCheck = Checkbox()
-    private lazy var pressureCheck = Checkbox()
-    private lazy var windCheck = Checkbox()
+    private lazy var humidityCheck = Checkbox(defaultValue: true)
+    private lazy var pressureCheck = Checkbox(defaultValue: true)
+    private lazy var windCheck = Checkbox(defaultValue: true)
     
     private let checkBoxWidthHeight: CGFloat = 35
     private let checkBoxLeadingConstraint: CGFloat = 70
@@ -40,8 +41,19 @@ class OptionsView: UIView {
         setupConstraints()
     }
     
+   
+    
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func reloadView(newOptions: OptionsModel){
+        celsiusCheck.isChecked = newOptions.useCelsius
+        fahrenheitCheck.isChecked = newOptions.useFahrenheit
+        humidityCheck.isChecked = newOptions.showHumidity
+        pressureCheck.isChecked = newOptions.showPressure
+        windCheck.isChecked = newOptions.showWind
     }
     
     func setupView(){
@@ -50,6 +62,7 @@ class OptionsView: UIView {
         backgroundImage.contentMode = .scaleAspectFill
         self.addSubview(backgroundImage)
         
+        celsiusCheck.setOpposite(fahrenheitCheck)
         self.addSubview(celsiusCheck)
         
         celsiusLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +71,7 @@ class OptionsView: UIView {
         celsiusLabel.sizeToFit()
         addSubview(celsiusLabel)
         
+        fahrenheitCheck.setOpposite(celsiusCheck)
         self.addSubview(fahrenheitCheck)
         
         fahrenheitLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -87,6 +101,12 @@ class OptionsView: UIView {
         self.addSubview(pressureCheck)
         windCheck.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(windCheck)
+        
+        celsiusCheck.addTarget(self, action: #selector(celsiusBoxTapped), for: .touchUpInside)
+        fahrenheitCheck.addTarget(self, action: #selector(fahrenheitBoxTapped), for: .touchUpInside)
+        humidityCheck.addTarget(self, action: #selector(humidityBoxTapped), for: .touchUpInside)
+        pressureCheck.addTarget(self, action: #selector(pressureBoxTapped), for: .touchUpInside)
+        windCheck.addTarget(self, action: #selector(windBoxTapped), for: .touchUpInside)
 
     }
     
@@ -143,5 +163,34 @@ class OptionsView: UIView {
             windCheck.leftAnchor.constraint(equalTo: pressureCheck.rightAnchor,constant: spaceBetweenCheckBox),
             windCheck.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: bottomConstant),
         ])
+    }
+    
+    @objc func celsiusBoxTapped() {
+        onOptionsChanged?(self.getCurrentOptios())
+
+    }
+
+    @objc func fahrenheitBoxTapped(){
+        onOptionsChanged?(self.getCurrentOptios())
+
+    }
+
+    @objc func humidityBoxTapped(){
+        onOptionsChanged?(self.getCurrentOptios())
+
+    }
+
+    @objc func pressureBoxTapped(){
+        onOptionsChanged?(self.getCurrentOptios())
+
+    }
+
+    @objc func windBoxTapped(){
+        onOptionsChanged?(self.getCurrentOptios())
+
+    }
+    
+    func getCurrentOptios() -> OptionsModel {
+        OptionsModel(useCelsius: celsiusCheck.isChecked, useFahrenheit: fahrenheitCheck.isChecked, showHumidity: humidityCheck.isChecked, showPressure: pressureCheck.isChecked, showWind: windCheck.isChecked)
     }
 }

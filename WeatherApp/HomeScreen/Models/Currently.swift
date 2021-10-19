@@ -34,3 +34,5 @@ struct Currently: Codable {
         return Currently(main: Main(temp: 273.15, humidity: 0, pressure: 0, temp_min: 273.15, temp_max: 273.15), wind: Wind(speed: 0), id: 0, name: "Unknown location", weather: [Weather(id: 800)])
     }
 }
+
+

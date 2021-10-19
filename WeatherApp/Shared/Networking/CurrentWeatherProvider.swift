@@ -12,8 +12,8 @@ class CurrentWeatherProvider {
     let constants = Constants()
     let currentLocation = Location()
     
-    func getWeatherInfo() -> Currently{
-        let stringURL = currentLocation.getCurrenntLocationURL()
+    func getWeatherByLocation(latitude: Double, longitude: Double) -> Currently{
+        let stringURL = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(Constants.apiKey)"
         if let url = URL(string: stringURL){
             if let data = try? Data(contentsOf: url){
                 return parse(json: data)
